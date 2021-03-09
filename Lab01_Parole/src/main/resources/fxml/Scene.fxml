@@ -27,7 +27,12 @@
                   <Button fx:id="btnInserisci" mnemonicParsing="false" onAction="#doInsert" text="Inserisci" />
                </children>
             </HBox>
-            <TextArea fx:id="txtResult" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+            <TextArea fx:id="txtResult" editable="false" wrapText="true" />
+            <TextArea fx:id="txtTime" prefHeight="50.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextArea>
          </children>
       </VBox>
    </center>
@@ -41,12 +46,12 @@
                <children>
                   <Button fx:id="btnClear" mnemonicParsing="false" onAction="#doClear" text="Clear">
                      <HBox.margin>
-                        <Insets left="50.0" />
+                        <Insets left="120.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="btnReset" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#doReset" text="Reset">
                      <HBox.margin>
-                        <Insets left="100.0" />
+                        <Insets left="170.0" />
                      </HBox.margin>
                   </Button>
                </children>

@@ -30,6 +30,9 @@ public class FXMLController {
     private TextArea txtResult;
     
     @FXML
+    private TextArea txtTime;
+    
+    @FXML
     private Button btnClear;
 
     @FXML
@@ -38,7 +41,7 @@ public class FXMLController {
     @FXML
     void doInsert(ActionEvent event) {
     	String word = txtParola.getText();
-    	elenco.addParola(word); //la aggiungo all'elenco
+    	double time = elenco.addParola(word); //la aggiungo all'elenco
     	
     	txtParola.clear(); //pulisco lo spazio di inserimento
     	
@@ -47,6 +50,8 @@ public class FXMLController {
     		result+=si+"\n";
     	txtResult.setText(result);
     	
+    	txtTime.setText("Tempo di ADD: "+time+" nanosecondi");
+    	
     }
     
     @FXML
@@ -54,9 +59,11 @@ public class FXMLController {
     	String selected = txtResult.getSelectedText();
     	
     	//toglie quella parola dall'elenco
+    	double time=0.0;
     	for(String si: elenco.getElenco())
-    		if(si.compareTo(selected)==0)
-    			elenco.clear(selected);	
+    		if(si.compareTo(selected)==0) 
+    			 time = elenco.clear(selected);	
+    		
     	
     	//cancello vecchia area di testo
     	//stampo il nuovo elenco
@@ -66,12 +73,15 @@ public class FXMLController {
     	for(String si: elenco.getElenco())
     		result+=si+"\n";
     	txtResult.setText(result);
+    	
+    	txtTime.setText("Tempo di CLEAR: "+time+" nanosecondi");
     			
     }
 
     @FXML
     void doReset(ActionEvent event) {
     	txtResult.clear();
+    	elenco.reset();
     }
 
     @FXML
