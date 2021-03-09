@@ -8,7 +8,7 @@ public class Parole {
 	List <String> parole;
 		
 	public Parole() {
-		parole = new LinkedList <String> ();
+		parole = new ArrayList <String> (); //so qual è l'indice da cui cancellare
 	}
 	
 	public void addParola(String p) {
@@ -19,6 +19,10 @@ public class Parole {
 		List <String> ordinate = parole;
 		Collections.sort(ordinate); //alfabetico
 		return ordinate;
+	}
+	
+	public void clear(String selected) {
+		parole.remove(selected);
 	}
 	
 	public void reset() {

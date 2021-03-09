@@ -28,6 +28,9 @@ public class FXMLController {
 
     @FXML
     private TextArea txtResult;
+    
+    @FXML
+    private Button btnClear;
 
     @FXML
     private Button btnReset;
@@ -44,6 +47,26 @@ public class FXMLController {
     		result+=si+"\n";
     	txtResult.setText(result);
     	
+    }
+    
+    @FXML
+    void doClear(ActionEvent event) {
+    	String selected = txtResult.getSelectedText();
+    	
+    	//toglie quella parola dall'elenco
+    	for(String si: elenco.getElenco())
+    		if(si.compareTo(selected)==0)
+    			elenco.clear(selected);	
+    	
+    	//cancello vecchia area di testo
+    	//stampo il nuovo elenco
+    	txtResult.clear();
+    	
+    	String result = ""; 
+    	for(String si: elenco.getElenco())
+    		result+=si+"\n";
+    	txtResult.setText(result);
+    			
     }
 
     @FXML
